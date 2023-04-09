@@ -5,9 +5,42 @@ import { usuario, newLang, newHobbies, mostrarCard, mostrarForm } from '../_data
 const senhaValidacao = ref('');
 
 function validacaoDeDados(){
+  let alertaExibido = false;
+  let valido = true;
+  Object.keys(usuario.value).forEach(propriedade => {
+    if(Array.isArray(usuario.value[propriedade])) {
+      if(usuario.value[propriedade].length === 0 && !alertaExibido){
+        alert('Você precisa ter pelo menos um hobbie e saber uma linguagem de programação.');
+        alertaExibido = true;
+        valido = false;
+      }
+    }
+  });
+  Object.keys(usuario.value).forEach(propriedade => {
+    if(typeof usuario.value[propriedade] === 'string'){
+      if(usuario.value[propriedade] === '' && !alertaExibido){
+        alert('Algum campo não foi preenchido.');
+        alertaExibido = true;
+        valido = false;
+      }
+    }
+  });
+  if (senhaValidacao.value !== usuario.value.senha){
+    alert('Você deve confirmar sua senha.');
+    valido = false;
+  }
+  const regexEmail = /^\S+@\S+\.\S+$/;
+      if(!regexEmail.test(usuario.value.email) && !alertaExibido){
+        alert('O email informado não é válido.');
+        alertaExibido = true;
+        valido = false;
+      }
+
+  if (valido) {
     mostrarCard.value = true;
     mostrarForm.value = false;
-} 
+  }
+}  
 
 </script>
 
