@@ -1,5 +1,13 @@
-<script setup></script>
+<script setup>
+import vueForm from './components/vueForm.vue';
+import vueCard from './components/vueCard.vue'
+import { mostrarForm, mostrarCard} from './_data/usuario';
+</script>
+<template>
 
-<template><p class="bg-black">aaaaaaaaa</p></template>
+<div class="bg-base min-h-screen min-w-screen flex flex-col justify-center items-center">
+<vueForm v-if="mostrarForm"></vueForm>
+<vueCard v-if="mostrarCard"></vueCard>
+</div>
 
-<style scoped></style>
+</template>
