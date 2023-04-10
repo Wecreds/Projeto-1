@@ -5,7 +5,7 @@ import { mostrarForm, mostrarCard} from './_data/usuario';
 </script>
 <template>
 
-<div class="bg-[url('../public/background.jpg')] bg-cover min-h-screen min-w-screen flex flex-col justify-center items-center">
+<div class="bg-[url('/background.jpg')] bg-cover min-h-screen min-w-screen flex flex-col justify-center items-center">
 <vueForm v-if="mostrarForm"></vueForm>
 <vueCard v-if="mostrarCard"></vueCard>
 </div>
