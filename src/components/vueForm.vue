@@ -7,18 +7,18 @@ const senhaValidacao = ref('');
 function validacaoDeDados(){
   let alertaExibido = false;
   let valido = true;
-  Object.keys(usuario.value).forEach(propriedade => {
-    if(Array.isArray(usuario.value[propriedade])) {
-      if(usuario.value[propriedade].length === 0 && !alertaExibido){
+  Object.keys(usuario.value).forEach(classe => {
+    if(Array.isArray(usuario.value[classe])) {
+      if(usuario.value[classe].length === 0 && !alertaExibido){
         alert('Você precisa ter pelo menos um hobbie e saber uma linguagem de programação.');
         alertaExibido = true;
         valido = false;
       }
     }
   });
-  Object.keys(usuario.value).forEach(propriedade => {
-    if(typeof usuario.value[propriedade] === 'string'){
-      if(usuario.value[propriedade] === '' && !alertaExibido){
+  Object.keys(usuario.value).forEach(classe => {
+    if(typeof usuario.value[classe] === 'string'){
+      if(usuario.value[classe] === '' && !alertaExibido){
         alert('Algum campo não foi preenchido.');
         alertaExibido = true;
         valido = false;
@@ -60,7 +60,7 @@ function validacaoDeDados(){
       <label class="block text-base font-semibold">Data de Nascimento</label>
       <input
         type="date"
-        v-model="usuario.dataDeNascimento"
+        v-model="usuario.data"
         class="block rounded-lg w-2/2 m-auto text-center focus:outline-none focus:shadow-outline leading-normal border-2 appearance-none"
       />
       <label class="block text-base font-semibold">Endereço</label>

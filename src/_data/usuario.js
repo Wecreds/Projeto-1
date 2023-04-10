@@ -4,7 +4,7 @@ export const usuario = ref({
     nome: '',
     email: '',
     senha: '',
-    data: 0,
+    data: '',
     endereco: '',
     cidade: '',
     estado: '',
