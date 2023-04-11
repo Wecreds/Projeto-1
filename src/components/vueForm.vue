@@ -46,7 +46,7 @@ function validacaoDeDados(){
 
 <template>
   <div
-    class="bg-black shadow-lg shadow-black flex flex-col w-1/6 min-h-fit py-3 rounded-lg text-center items-center opacity-90 "
+    class="bg-black shadow-lg shadow-black flex flex-col w-1/5 h-fit py-3 rounded-lg text-center items-center opacity-90 "
   >
     <div class="items-center text-center">
       <label class="block text-base font-semibold">Nome</label> 

@@ -3,19 +3,15 @@ import { usuario } from '../_data/usuario';
 </script>
 
 <template>
-<div class="flex flex-col bg-black shadow-lg shadow-black w-1/6 min-h-fit rounded-lg text-center items-center py-3 opacity-90">
-    <span class="text-base font-semibold">
-        <p>Nome: {{ usuario.nome }}</p>
-        <p>E-mail: {{ usuario.email }}</p>
-        <p>Senha: {{ usuario.senha }}</p>
-        <p>Data de nascimento: {{ usuario.data }}</p>
-        <p>Endereço: {{ usuario.endereco }}</p>
-        <p>Cidade: {{ usuario.cidade }}</p>
-        <p>Estado: {{ usuario.estado.sigla }}</p> <!-- se fosse para mostrar o nome do estado completo, so trocar o .sigla por .nome -->
-        <p>Hobbies: {{ usuario.hobbies.join(", ") }}</p>
-        <p>Linguagens: {{ usuario.linguagens.join(", ") }}</p>
-        <p>Auto-biografia: {{ usuario.biografia }}</p>
-    </span>
+
+<div class="flex flex-col bg-black shadow-lg shadow-black w-1/6 rounded-lg py-1 opacity-90">
+<div class="px-6 py-4">
+    <div class="font-bold text-xl text-orange leading-none	">{{ usuario.nome }}</div>
+    <div class="font-bold text-sm text-white leading-none	">{{ usuario.email }}</div>
+    <div class="font-bold text-sm text-orange leading-none	">{{ usuario.data }} 🎂 <div class="text-right	"></div></div>
+    <div class="font-bold text-base text-white text-justify">{{ usuario.biografia }}</div>
 
 </div>
+</div>
+
 </template>
