@@ -1,5 +1,6 @@
 <script setup>
 import {ref} from 'vue';
+import Swal from 'sweetalert2'
 import estados from '../_data/estados';
 import { usuario, newLang, newHobbies, mostrarCard, mostrarForm } from '../_data/usuario';
 const senhaValidacao = ref('');
@@ -10,7 +11,11 @@ function validacaoDeDados(){
   Object.keys(usuario.value).forEach(classe => {
     if(Array.isArray(usuario.value[classe])) {
       if(usuario.value[classe].length === 0 && !alertaExibido){
-        alert('Você precisa ter pelo menos um hobbie e saber uma linguagem de programação.');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Vocé não enviou nenhum hobbie ou linguagem de programacao.',
+        });
         alertaExibido = true;
         valido = false;
       }
@@ -19,19 +24,31 @@ function validacaoDeDados(){
   Object.keys(usuario.value).forEach(classe => {
     if(typeof usuario.value[classe] === 'string'){
       if(usuario.value[classe] === '' && !alertaExibido){
-        alert('Algum campo não foi preenchido.');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Algum dos campos nao foi preenchido.',
+        });
         alertaExibido = true;
         valido = false;
       }
     }
   });
   if (senhaValidacao.value !== usuario.value.senha){
-    alert('Você deve confirmar sua senha.');
+    Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Confirme sua senha corretamente.',
+        });
     valido = false;
   }
   const regexEmail = /^\S+@\S+\.\S+$/;
       if(!regexEmail.test(usuario.value.email) && !alertaExibido){
-        alert('O email informado não é válido.');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Insira um email valido.',
+        });
         alertaExibido = true;
         valido = false;
       }
@@ -46,7 +63,7 @@ function validacaoDeDados(){
 
 <template>
   <div
-    class="bg-black shadow-lg shadow-black flex flex-col w-1/5 h-fit py-3 rounded-lg text-center items-center opacity-90 "
+    class="bg-black shadow-lg shadow-black flex flex-col w-1/6 h-fit py-3 rounded-lg text-center items-center opacity-90 "
   >
     <div class="items-center text-center">
       <label class="block text-base font-semibold">Nome</label> 
