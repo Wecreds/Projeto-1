@@ -3,6 +3,7 @@ import { ref } from 'vue'
 export const usuario = ref({
     nome: '',
     email: '',
+    avatar: null,
     senha: '',
     data: '',
     endereco: '',

@@ -4,6 +4,7 @@ import { usuario } from '../_data/usuario'
 
 <template>
   <div class="flex flex-col bg-black shadow-lg shadow-black w-1/6 rounded-lg opacity-90 px-5 py-3">
+    <img :src="usuario.avatar" class="w-24 h-24 rounded-full mx-auto"/> 
     <div class="flex items-center">
       <div class="font-bold text-xl text-orange">{{ usuario.nome }}</div>
       <div class="font-bold text-sm text-gray-200 ml-auto text-center"> 🎂 {{ usuario.data }}</div>
@@ -32,6 +33,6 @@ import { usuario } from '../_data/usuario'
         Linguagens de programação:<br />
         <span class="text-gray-200">{{ usuario.linguagens.join(', ') }}.</span>
       </div>
-    </div>
+    </div> 
   </div>
 </template>

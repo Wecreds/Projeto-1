@@ -59,11 +59,19 @@ function validacaoDeDados(){
   }
 }  
 
+function handleFileUpload(e) {
+  const target = e.target
+  if (target && target.files) {
+    const file = target.files[0]
+    usuario.value.avatar = URL.createObjectURL(file)
+  }
+}
+
 </script>
 
 <template>
   <div
-    class="bg-black shadow-lg shadow-black flex flex-col w-1/6 h-fit py-3 rounded-lg text-center items-center opacity-90 "
+    class="bg-black shadow-lg shadow-black flex flex-col md:w-1/2 xl:w-1/5 2xl:w-1/6 h-fit py-3 rounded-lg text-center items-center opacity-90 "
   >
     <div class="items-center text-center">
       <label class="block text-base font-semibold">Nome</label> 
@@ -109,7 +117,7 @@ function validacaoDeDados(){
       >
       <input
         type="text"
-        class="block rounded-lg w-2/2 m-auto text-center focus:outline-none appearance-none border-2 focus:border-orange"
+        class="block rounded-lg w-2/2 m-auto text-center  focus:outline-none appearance-none border-2 focus:border-orange"
         v-model="newLang"
         @keypress.enter="
           usuario.linguagens.push(newLang);
@@ -117,6 +125,12 @@ function validacaoDeDados(){
       />
       <label class="block text-base font-semibold">Faça a sua biografia:</label>
       <textarea v-model="usuario.biografia" rows="4" class="block rounded-lg w-2/2 m-auto text-justify focus:outline-none appearance-none border-2 focus:border-orange"></textarea>
+      <label class="block text-base font-semibold">Envie um avatar</label>
+      <input
+      class="block rounded-lg w-2/2 m-auto text-center text-base appearance-none "
+        type="file"
+        @change="handleFileUpload($event)"
+    />
       <button
         class="bg-base rounded-lg p-1 m-2"
         @click="
@@ -125,6 +139,7 @@ function validacaoDeDados(){
       >
         Enviar
       </button>
+
     </div>
   </div>
 </template>
