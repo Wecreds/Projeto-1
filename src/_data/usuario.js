@@ -17,4 +17,3 @@ export const usuario = ref({
 export const newLang = ref('')
 export const newHobbies = ref('')
 export const mostrarForm = ref(true)
-export const mostrarCard = ref(false)
